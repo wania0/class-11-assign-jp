@@ -24,24 +24,22 @@ class Item:
     def calculate_total_price(self):
         
         total_price = self.price * self.quantity
-        print("The total price is:", total_price) 
+        print(f"The total price of {self.name} is: {total_price}") 
            
     def apply_discount(self):
         
-        print("Actual price is:", self.price)
-        discount_amount = self.price * float(self.discount_rate)
+        print(f"Actual price of {self.name} is:", self.price)
+        discount_amount = self.price * self.discount_rate
         self.price = self.price - discount_amount
-        print(self.discount_rate * 100, "percent discount is applied.New price is:", self.price)
-        
+        print(f"After {self.discount_rate * 100} percent discount on {self.name} new price is: {self.price}")
+
     @classmethod
     def read_file(cls):
-        f = open ("items.csv","r")
+        f = open ("data/items.csv","r")
         data = f.readlines()
         for item in data:
-            Item.items.append(item.strip())
-        print("Items are:")
-        for item in Item.items:
-            print(item)
+            item = Item(item[0], (item[1]),(item[2]))
+            Item.items.append(item)
 
 class Laptop(Item):
     def __init__(self, name, price, quantity, gpu, port_count):

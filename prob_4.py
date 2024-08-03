@@ -20,6 +20,7 @@ class Hotel:
         self.hotel_name = hotel_name
         self.hotel_address = hotel_address
         self.rooms = []
+        self.booking = []
         
     def hotel_info(self):
         print("Hotel name is:", self.hotel_name, "Hotel address is:", self.hotel_address)
@@ -28,9 +29,9 @@ class Hotel:
         room =  Room(room_name, num_of_beds, fare_per_day)
         self.rooms.append(room)
         print("Room", room_name, "with", num_of_beds, "beds has been successfully added to the hotel.")
-     
-class Room:
+        
     
+class Room:
     def __init__(self, room_name, num_of_beds, fare_per_day):
         self.room_name = room_name
         self.num_of_beds = num_of_beds
